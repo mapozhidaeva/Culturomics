@@ -11,8 +11,15 @@ def write_tsv(items, lines = 500): #пока возьмем только 500 с�
     for item in items:
         if item["type"] == "item" and n_lines < lines:
             n_lines += 1
+
             id_ = item["id"]
-            label = item["labels"]["ru"]["value"]
+
+            label = ''
+            try:
+                label = item["labels"]["ru"]["value"]
+            except KeyError:
+                pass
+
             aliases = ''
             try:
                 if len(item["aliases"]["ru"]) == 1:
@@ -31,4 +38,4 @@ def write_tsv(items, lines = 500): #пока возьмем только 500 с�
 write_tsv(items)
 f = f.close()
 
-#этот код выполняется примерно 35 секунд
+#этот код выполняется примерно 27 секунд

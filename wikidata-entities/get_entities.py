@@ -3,7 +3,7 @@ LINES = 5000
 
 
 def write_tsv(items): 
-    with open("entities-5000.tsv", "a", encoding = "UTF-8") as wf:
+    with open("entities-5000.tsv", "w", encoding = "UTF-8") as wf:
         n_lines = 0
         for item in items:
             if item["type"] == "item" and n_lines < LINES:    

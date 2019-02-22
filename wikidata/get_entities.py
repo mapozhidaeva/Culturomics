@@ -1,5 +1,6 @@
 import ijson
 
+
 def write_tsv(items): 
     with open("all-entities.tsv", "w", encoding = "UTF-8") as wf:
         n_lines = 0
@@ -28,10 +29,8 @@ def write_tsv(items):
                     except UnicodeEncodeError:
                         pass
 
-
                     if n_lines % 5000 == 0:
-                        print("{} items saved".format(n_lines))                       
-                
+                        print("{} items saved".format(n_lines))                                      
     return 0
 
 

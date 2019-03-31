@@ -3,13 +3,13 @@ from string import punctuation
 import re
 import csv
 
-punct = punctuation+'«»—…“”*–'
-russian = "[А-Яа-я]+"
-
 
 def load_unigrams(my_index):
 
+    punct = punctuation+'«»—…“”*–'
+    russian = "[А-Яа-я]+"
     tags = ("_ADJ", "_ADP", "_ADV", "_CONJ", "_NOUN", "_NUM", "_PRT", "_VERB", "_X")
+    
     fname, url, records = next(readline_google_store(ngram_len=1, lang='rus', indices=my_index))
     record = next(records)
     count = 0
@@ -46,6 +46,7 @@ def main():
                        'u', 'v', 'w', 'x', 'y', 'z', 'other']
     for indx in unigram_indices:
         load_unigrams(indx)
+        
     return 0
 
 if __name__ == '__main__':

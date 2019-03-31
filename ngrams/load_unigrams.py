@@ -14,7 +14,7 @@ def load_unigrams(my_index):
     record = next(records)
     count = 0
 
-    with open('/Users/anyway/Desktop/ngrams/unigrams_' + my_index + '.tsv', 'w') as f:
+    with open('unigrams_' + my_index + '.tsv', 'w') as f:
         writer = csv.writer(f, delimiter='\t')
         while True:
             try:

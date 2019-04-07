@@ -6,7 +6,6 @@ import csv
 
 def load_ngrams(my_ngram_len, indx):
 
-    punct = punctuation+'«»—…“”*–'
     russian = "[А-Яа-я]+"
     tags = "ADJ|ADP|ADV|CONJ|NOUN|NUM|PRT|VERB"
     

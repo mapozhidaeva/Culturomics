@@ -59,4 +59,7 @@ https://docs.google.com/spreadsheets/d/1wkLXJOS6rsG5xUrja26ofORUhB5N80HYoJlb99h4
 ## ТЗ
 https://docs.google.com/document/d/1tKQyy_8AN1Ica0LDwUOuhJi9VCqSrfMqjAuajq2YQMw/edit#
 
+## Литература
+### - по коррекции орфографии:
+http://www.dialog-21.ru/media/3429/sorokinaashavrinato.pdf
 

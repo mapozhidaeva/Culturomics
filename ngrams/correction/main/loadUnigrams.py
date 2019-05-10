@@ -5,7 +5,7 @@ from string import punctuation
 import re
 import csv
 from SpellCorrect import spellCorrect
-from CharLM.model import 
+# from CharLM.SeqProb import seqProb
 # punct = punctuation+'«»—…“”*–'
 # if len(record.ngram.strip(punct)) > 2
 '''
@@ -22,37 +22,7 @@ def normalize(ngram):
         
     return(ngram)
 
-def to_check(string):
-    '''Rid of non-cyrilic words, 
-    words with len < 5, 
-    dictionary words 
-    and words with probability>? of being a non-error word given by the language model'''
-    global trie
-    global l
-    
-    if len(string)<5:
-        return string
-    # alphanumeric words stay the same
-    s = re.sub("[.,:\'-]", '', string)
-    charRe = re.compile(r'[^a-zA-Z0-9.]')
-    st = charRe.search(s)
-    
-    if not bool(st):
-        return string
-    else:
-        # vocab words stay the same
-        if trie.find(s.lower(), 0):
-#         if s.lower() in vocab:
-            return string
-        
-        elif p_sequence(s.lower())>l:
-            return string
-        else:
-            correct(string) 
-            # why not lower? because upper and lower characters look differently 
-            # and can be recognised as different symbols
-
-def load_ngrams(table_name, my_len, my_lang, my_indices, before_1918=False):
+def load_ngrams(my_len, my_lang, my_indices, before_1918=False):
     fname, url, records = next(readline_google_store(ngram_len=my_len, lang=my_lang, indices=my_indices))
     record = next(records)
     e = 0
@@ -104,11 +74,10 @@ def load_ngrams(table_name, my_len, my_lang, my_indices, before_1918=False):
 
 
 def main():
-    sc = spellCorrect()
-    lm = 
-    l = 
-    
-    trie = cs.trie
+    correct = spellCorrect()
+    lm = None
+    l = 0
+
     unigram_indices = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
                        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
                        'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',

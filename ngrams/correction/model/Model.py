@@ -9,9 +9,6 @@ import torch.nn.functional as F
 from torch.utils.data.dataset import Dataset
 from torch.utils.data.dataloader import DataLoader
 
-from model_embeddings import ModelEmbeddings
-Hypothesis = namedtuple('Hypothesis', ['value', 'score'])
-
 
 class CharLM(nn.Module):
     """ Character Language Model:
@@ -26,7 +23,7 @@ class CharLM(nn.Module):
         @param embed_dim (int): Embedding size (dimensionality)
         @param hidden_dim (int): Hidden Size (dimensionality)
         @param vocab (Vocab): Vocabulary object containing src and tgt languages
-                              See vocab.py for documentation.
+                              See Vocab.py for documentation.
         @param drop_prob (float): Dropout probability, for lstm
         """
         super(CharLM, self).__init__()
@@ -38,8 +35,7 @@ class CharLM(nn.Module):
 
         self.emb = nn.Embedding(vocab.vocab_size, emb_dim)
         self.lstm = nn.LSTM(self.embed_dim, hidden_dim, num_layers=n_layers, batch_first=True)
-        self.fc = nn.Linear(in_features=hidden_dim, out_features=vocab.vocab_size*vocab.pad_len)
-        ## TODO: INITIALIZE LAYERS
+        self.fc = nn.Linear(in_features=hidden_dim*vocab.pad_len, out_features=vocab.vocab_size*vocab.pad_len)
 
     def forward(self, input_seq):
         """ Take a mini-batch of source and target sentences, compute the log-likelihood of
@@ -49,7 +45,19 @@ class CharLM(nn.Module):
 
         @returns scores (Tensor): a tensor of shape (batch size, vocab size, word len)
         """
-        return None
+        # torch.Size([64, 27])
+        embeded = self.emb(input_seq).view(-1, self.vocab.pad_len, self.emb_dim)
+        # torch.Size([64, 27, 27]) or torch.Size([1, 27, 27])
+        out, hidden = self.lstm(embeded)
+        # torch.Size([64, 27, 1024])
+        batch_size, seq_size, hidden_size = out.shape
+        out = out.contiguous().view(batch_size, seq_size * hidden_size)
+        # torch.Size([64, 13824])
+        out = self.output(out).view(-1, self.vocab.pad_len, self.vocab.vocab_size)
+        # torch.Size([64, 27, 55])
+        final = F.softmax(out, dim=-1)
+        # torch.Size([64, 27,55])
+        return final
 
     @property
     def device(self) -> torch.device:
@@ -58,7 +66,7 @@ class CharLM(nn.Module):
         return torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
     @staticmethod
-    def load(model_path: str):
+    def load(model_path: str='old_rus_lm.pth'):
         """ Load the model from a file.
         @param model_path (str): path to model
         """
@@ -69,7 +77,7 @@ class CharLM(nn.Module):
 
         return model
 
-    def save(self, path: str):
+    def save(self, path: str='old_rus_lm.pth'):
         """ Save the odel to a file.
         @param path (str): path to the model
         """

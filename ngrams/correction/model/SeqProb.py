@@ -1,11 +1,5 @@
 import sys
 from functools import reduce
-# from typing import List, Tuple, Dict, Set, Union
-# import torch
-# import torch.nn as nn
-# import torch.nn.utils
-# import torch.nn.functional as F
-# from torch.nn.utils.rnn import pad_packed_sequence, pack_padded_sequence
 
 def char_probs(model, dataset, vocab):
     for i in range(10):

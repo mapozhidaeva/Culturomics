@@ -16,48 +16,74 @@ class CharLM(nn.Module):
         - Unidirection LSTM Layer
         - Fully Connected Layer
     """
-    def __init__(self, vocab, embed_dim=27,
-                 hidden_dim=128, drop_prob=0.2, n_layers=2):
-        """ Init Language Model.
-
-        @param embed_dim (int): Embedding size (dimensionality)
-        @param hidden_dim (int): Hidden Size (dimensionality)
-        @param vocab (Vocab): Vocabulary object containing src and tgt languages
-                              See Vocab.py for documentation.
-        @param drop_prob (float): Dropout probability, for lstm
-        """
+    def __init__(self, vocab_size, emb_dim=27, hidden_size=128, n_layers=2, drop_prob=0.5, word_len=27):
         super(CharLM, self).__init__()
-        self.embed_dim = embed_dim
-        self.hidden_dim = hidden_dim
-        self.drop_prob = drop_prob
-        self.vocab = vocab
-        self.n_layers = n_layers
-
-        self.emb = nn.Embedding(vocab.vocab_size, emb_dim)
-        self.lstm = nn.LSTM(self.embed_dim, hidden_dim, num_layers=n_layers, batch_first=True)
-        self.fc = nn.Linear(in_features=hidden_dim*vocab.pad_len, out_features=vocab.vocab_size*vocab.pad_len)
-
-    def forward(self, input_seq):
-        """ Take a mini-batch of source and target sentences, compute the log-likelihood of
-        target sentences under the language models learned by the NMT system.
-
-        @param imput_seq: source sentence tokens, wrapped by `^` and `$` (start and end of word)
-
-        @returns scores (Tensor): a tensor of shape (batch size, vocab size, word len)
-        """
+        self.vocab_size = vocab_size
+        self.word_len = word_len
+        self.emb_dim = emb_dim
+        self.hidden_size = hidden_size
+        self.n_layers=n_layers
+        self.emb = nn.Embedding(vocab_size, emb_dim)
+        self.lstm = nn.LSTM(self.emb_dim, hidden_size, num_layers=self.n_layers, batch_first=True) #,dropout=drop_prob)#, bidirectional=True)
+        self.output = nn.Linear(in_features=self.word_len*self.hidden_size, out_features=self.vocab_size*word_len)
+    
+    def forward(self, input_word):
         # torch.Size([64, 27])
-        embeded = self.emb(input_seq).view(-1, self.vocab.pad_len, self.emb_dim)
+        embeded = self.emb(input_word).view(-1, self.word_len, self.emb_dim)
         # torch.Size([64, 27, 27]) or torch.Size([1, 27, 27])
         out, hidden = self.lstm(embeded)
         # torch.Size([64, 27, 1024])
         batch_size, seq_size, hidden_size = out.shape
-        out = out.contiguous().view(batch_size, seq_size * hidden_size)
+        out = out.contiguous().view(batch_size, seq_size*hidden_size)
         # torch.Size([64, 13824])
-        out = self.output(out).view(-1, self.vocab.pad_len, self.vocab.vocab_size)
+        out = self.output(out).view(-1, self.word_len, self.vocab_size)
         # torch.Size([64, 27, 55])
         final = F.softmax(out, dim=-1)
         # torch.Size([64, 27,55])
         return final
+    
+#     def __init__(self, vocab, embed_dim=128,
+#                  hidden_dim=128, drop_prob=0.2, n_layers=2):
+#         """ Init Language Model.
+
+#         @param embed_dim (int): Embedding size (dimensionality)
+#         @param hidden_dim (int): Hidden Size (dimensionality)
+#         @param vocab (Vocab): Vocabulary object containing src and tgt languages
+#                               See Vocab.py for documentation.
+#         @param drop_prob (float): Dropout probability, for lstm
+#         """
+#         super(CharLM, self).__init__()
+#         self.embed_dim = embed_dim
+#         self.hidden_dim = hidden_dim
+#         self.drop_prob = drop_prob
+#         self.vocab = vocab
+#         self.n_layers = n_layers
+
+#         self.emb = nn.Embedding(vocab.vocab_size, embed_dim)
+#         self.lstm = nn.LSTM(self.embed_dim, hidden_dim, num_layers=n_layers, batch_first=True)
+#         self.fc = nn.Linear(in_features=hidden_dim*vocab.pad_len, out_features=vocab.vocab_size*vocab.pad_len)
+
+#     def forward(self, input_seq):
+#         """ Take a mini-batch of source and target sentences, compute the log-likelihood of
+#         target sentences under the language models learned by the NMT system.
+
+#         @param imput_seq: source sentence tokens, wrapped by `^` and `$` (start and end of word)
+
+#         @returns scores (Tensor): a tensor of shape (batch size, vocab size, word len)
+#         """
+#         # torch.Size([64, 27])
+#         embeded = self.emb(input_seq).view(-1, self.vocab.pad_len, self.embed_dim)
+#         # torch.Size([64, 27, 27]) or torch.Size([1, 27, 27])
+#         out, hidden = self.lstm(embeded)
+#         # torch.Size([64, 27, 1024])
+#         batch_size, seq_size, hidden_size = out.shape
+#         out = out.contiguous().view(batch_size, seq_size * hidden_size)
+#         # torch.Size([64, 13824])
+#         out = self.output(out).view(-1, self.vocab.pad_len, self.vocab.vocab_size)
+#         # torch.Size([64, 27, 55])
+#         final = F.softmax(out, dim=-1)
+#         # torch.Size([64, 27,55])
+#         return final
 
     @property
     def device(self) -> torch.device:

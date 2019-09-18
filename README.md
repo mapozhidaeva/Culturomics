@@ -40,8 +40,8 @@
 Ответственная Николаева А. 
 
 ### Научные статьи по проекту
-1. [Статья Митрофанова М. по коррекции орфографии](https://github.com/mapozhidaeva/Culturomics/blob/master/ngrams/correction/Experiments_with_Automatic_Spelling_Correction_of_Russian_Google_ngrams.pdf)
-2. [Черновой вариант статьи Николаевой А. И Пожидаевой М. по статистической обработке и связыванию Google Ngrams с Викиданными](https://docs.google.com/document/d/1Oro7JpuqgTwBLph8zRE8DShjhnzBf_ddbU6Ed8X_bA8/edit?usp=sharing)
+1. [Статья Митрофановой М. по коррекции орфографии](https://github.com/mapozhidaeva/Culturomics/blob/master/ngrams/correction/Experiments_with_Automatic_Spelling_Correction_of_Russian_Google_ngrams.pdf)
+2. [Черновой вариант статьи Николаевой А. и Пожидаевой М. по статистической обработке и связыванию Google Ngrams с Викиданными](https://docs.google.com/document/d/1Oro7JpuqgTwBLph8zRE8DShjhnzBf_ddbU6Ed8X_bA8/edit?usp=sharing)
 
 
 ### Презентации по проекту для НИСа

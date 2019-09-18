@@ -39,26 +39,26 @@
 
 Ответственная Николаева А.
 
-### Презентация к НИСу 23.11
+### Презентации по проекту для НИСа
+0. [Презентация проекта от Б.Орехова](https://github.com/mapozhidaeva/Culturomics/blob/master/culturomics.pdf)
+1. [О чем проект](https://docs.google.com/presentation/d/1nsUt2n2RV3OEoWmWHY00Bj7XUG-Xm4Ipbs4gRFJbW68/edit#slide=id.g441cd6402a_0_69)
+2. [Полезные статьи по теме проекта](https://docs.google.com/presentation/d/1d8Q_VsOsMgCxy9HeK3AE3_8OnHCiVT4oroVc1PcWeGU/edit#slide=id.g49f512a5ed_1_0)
 
-https://docs.google.com/presentation/d/1nsUt2n2RV3OEoWmWHY00Bj7XUG-Xm4Ipbs4gRFJbW68/edit#slide=id.g441cd6402a_0_69
+### Отчеты по встречам
+см. Meeting_reports.md
+
+## Техническое задание
+1. [Изначальное ТЗ](https://docs.google.com/document/d/1tKQyy_8AN1Ica0LDwUOuhJi9VCqSrfMqjAuajq2YQMw/edit#)
+2. [Новое ТЗ](https://docs.google.com/document/d/1bIN41JnBMMOwzhjFnIKWqivxQyKHSmz3nnc48IxW99o/edit?usp=sharing)
+
+## Полезные статьи
+### - по коррекции орфографии
+https://github.com/mapozhidaeva/Culturomics/blob/master/ngrams/correction/Experiments_with_Automatic_Spelling_Correction_of_Russian_Google_ngrams.pdf
 
 ### Тим-лидерство
-
-До 24.11 тимлид – Аня
-
 Расписание тим-лидерства: 
 https://docs.google.com/spreadsheets/d/1wkLXJOS6rsG5xUrja26ofORUhB5N80HYoJlb99h4KSA/edit#gid=0
 
 ### Общение с куратором
 По понедельникам
 
-### Отчеты по встречам
-
-см. Meeting_reports.md
-## ТЗ
-https://docs.google.com/document/d/1tKQyy_8AN1Ica0LDwUOuhJi9VCqSrfMqjAuajq2YQMw/edit#
-
-## Статьи
-### - по коррекции орфографии
-https://github.com/mapozhidaeva/Culturomics/blob/master/ngrams/correction/Experiments_with_Automatic_Spelling_Correction_of_Russian_Google_ngrams.pdf

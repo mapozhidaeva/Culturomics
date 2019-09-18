@@ -39,9 +39,12 @@
 
 Ответственная Николаева А. 
 
+Примеры извлеченных из Викиданных утверждений, совпавших по годам с ростом частот в Google ngrams, можно найти [тут](https://github.com/mapozhidaeva/Culturomics/tree/master/wikidata/result-dates). 
+
 ### Научные статьи по проекту
 1. [Статья Митрофановой М. по коррекции орфографии](https://github.com/mapozhidaeva/Culturomics/blob/master/ngrams/correction/Experiments_with_Automatic_Spelling_Correction_of_Russian_Google_ngrams.pdf)
-2. [Черновой вариант статьи Николаевой А. и Пожидаевой М. по статистической обработке и связыванию Google Ngrams с Викиданными](https://docs.google.com/document/d/1Oro7JpuqgTwBLph8zRE8DShjhnzBf_ddbU6Ed8X_bA8/edit?usp=sharing)
+
+2. [Подробный черновой вариант статьи Николаевой А. и Пожидаевой М. по статистической обработке и связыванию Google Ngrams с Викиданными](https://docs.google.com/document/d/1Oro7JpuqgTwBLph8zRE8DShjhnzBf_ddbU6Ed8X_bA8/edit?usp=sharing). На с.3 указан основной пайплайн работы с Викиданными.   
 
 
 ### Презентации по проекту для НИСа

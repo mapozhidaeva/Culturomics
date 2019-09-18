@@ -39,7 +39,7 @@
 
 Ответственная Николаева А. 
 
-Примеры извлеченных из Викиданных утверждений, совпавших по годам с ростом частот в Google ngrams, можно найти [тут](https://github.com/mapozhidaeva/Culturomics/tree/master/wikidata/result-dates). 
+Примеры утверждений из Викиданных, совпавших по годам с ростом частот в Google ngrams, можно найти [тут](https://github.com/mapozhidaeva/Culturomics/tree/master/wikidata/result-dates). 
 
 ### Научные статьи по проекту
 1. [Статья Митрофановой М. по коррекции орфографии](https://github.com/mapozhidaeva/Culturomics/blob/master/ngrams/correction/Experiments_with_Automatic_Spelling_Correction_of_Russian_Google_ngrams.pdf)

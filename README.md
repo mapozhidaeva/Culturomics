@@ -39,6 +39,11 @@
 
 Ответственная Николаева А. Телеграм для связи - @annnyway
 
+### Научные статьи по проекту
+1. [Статья Митрофанова М. по коррекции орфографии](https://github.com/mapozhidaeva/Culturomics/blob/master/ngrams/correction/Experiments_with_Automatic_Spelling_Correction_of_Russian_Google_ngrams.pdf)
+2. [Черновой вариант статьи Николаевой А. И Пожидаевой М. по статистической обработке и связыванию Google Ngrams с Викиданными](https://docs.google.com/document/d/1Oro7JpuqgTwBLph8zRE8DShjhnzBf_ddbU6Ed8X_bA8/edit?usp=sharing)
+
+
 ### Презентации по проекту для НИСа
 0. [Презентация проекта от Б.Орехова](https://github.com/mapozhidaeva/Culturomics/blob/master/culturomics.pdf)
 1. [О чем проект](https://docs.google.com/presentation/d/1nsUt2n2RV3OEoWmWHY00Bj7XUG-Xm4Ipbs4gRFJbW68/edit#slide=id.g441cd6402a_0_69)
@@ -47,13 +52,9 @@
 ### Отчеты по встречам
 см. Meeting_reports.md
 
-## Техническое задание
+### Техническое задание
 1. [Изначальное ТЗ](https://docs.google.com/document/d/1tKQyy_8AN1Ica0LDwUOuhJi9VCqSrfMqjAuajq2YQMw/edit#)
 2. [Новое ТЗ](https://docs.google.com/document/d/1bIN41JnBMMOwzhjFnIKWqivxQyKHSmz3nnc48IxW99o/edit?usp=sharing)
-
-## Полезные статьи
-### - по коррекции орфографии
-https://github.com/mapozhidaeva/Culturomics/blob/master/ngrams/correction/Experiments_with_Automatic_Spelling_Correction_of_Russian_Google_ngrams.pdf
 
 ### Тим-лидерство
 Расписание тим-лидерства: 

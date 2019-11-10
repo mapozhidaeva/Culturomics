@@ -207,8 +207,7 @@ def add_growth_speed_values(z_scores_window_mean_df, result_wiki_dates, norm_df)
 
 def main():
 	# dates-unigrams_g.tsv, norm-unigrams_g.pkl
-	# items_list = [i for i in "rstufvwxyz"] + [str(i) for i in range(10)]
-	items_list = [i for i in "yz"]
+	items_list = [i for i in "rstufvwxyz"] + [str(i) for i in range(10)]
 	for item in items_list:
 		norm_unigrams_path = "norm-unigrams_{}.pkl".format(item)
 		try:
